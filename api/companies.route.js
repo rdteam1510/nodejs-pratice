@@ -1,13 +1,15 @@
 import express from "express"
-import CompaniesCtrl from "./companies.controller.js"
+// import CompaniesCtrl from "./companies.controller.js"
+import StocksCtrl from "./stocks.controller.js"
 // import ReviewsCtrl from "./reviews.controller.js"
 
 const router = express.Router()
 
-router.route("/").get(CompaniesCtrl.apiGetCompanies)
+// router.route("/").get(CompaniesCtrl.apiGetCompanies)
 // router.route("/id/:id").get(RestaurantsCtrl.apiGetRestaurantById)
 // router.route("/cuisines").get(RestaurantsCtrl.apiGetRestaurantCuisines)
 
+router.route("/").get(StocksCtrl.apiGetStocks)
 // router
 //   .route("/review")
 //   .post(ReviewsCtrl.apiPostReview)
