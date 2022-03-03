@@ -8,7 +8,7 @@ export default class StocksDAO {
       return
     }
     try {
-      stocks = await conn.db(process.env.RESTREVIEWS_NS).collection("Stocks")
+      stocks = await conn.db(process.env.TRADINGVISION_NS).collection("Stocks")
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in stocksDAO: ${e}`,
@@ -19,7 +19,7 @@ export default class StocksDAO {
   static async getStocks({
     filters = null,
     page = 0,
-    stocksPerPage = 100,
+    stocksPerPage = 300,
   } = {}) {
     let query
     if (filters) {

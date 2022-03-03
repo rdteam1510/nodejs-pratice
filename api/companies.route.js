@@ -1,6 +1,8 @@
 import express from "express"
 import CompaniesCtrl from "./companies.controller.js"
 import StocksCtrl from "./stocks.controller.js"
+import ForPredictionController from "./forprediction.controller.js"
+
 // import ReviewsCtrl from "./reviews.controller.js"
 
 const router = express.Router()
@@ -10,6 +12,8 @@ router.route("/companies").get(CompaniesCtrl.apiGetCompanies)
 // router.route("/cuisines").get(RestaurantsCtrl.apiGetRestaurantCuisines)
 
 router.route("/stocks").get(StocksCtrl.apiGetStocks)
+
+router.route("/forprediction").get(ForPredictionController.apiGetStocks)
 // router
 //   .route("/review")
 //   .post(ReviewsCtrl.apiPostReview)

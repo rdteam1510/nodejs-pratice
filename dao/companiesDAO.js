@@ -8,7 +8,7 @@ export default class CompaniesDAO {
       return
     }
     try {
-      companies = await conn.db(process.env.RESTREVIEWS_NS).collection("CompanyInfo")
+      companies = await conn.db(process.env.TRADINGVISION_NS).collection("CompanyInfo")
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in companiesDAO: ${e}`,
