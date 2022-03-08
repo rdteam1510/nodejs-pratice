@@ -57,49 +57,21 @@ export default class CompaniesDAO {
       return { companiesList: [], totalNumCompanies: 0 }
     }
   }
-  // static async getRestaurantByID(id) {
-  //   try {
-  //     const pipeline = [
-  //       {
-  //           $match: {
-  //               _id: new ObjectId(id),
-  //           },
-  //       },
-  //             {
-  //                 $lookup: {
-  //                     from: "reviews",
-  //                     let: {
-  //                         id: "$_id",
-  //                     },
-  //                     pipeline: [
-  //                         {
-  //                             $match: {
-  //                                 $expr: {
-  //                                     $eq: ["$restaurant_id", "$$id"],
-  //                                 },
-  //                             },
-  //                         },
-  //                         {
-  //                             $sort: {
-  //                                 date: -1,
-  //                             },
-  //                         },
-  //                     ],
-  //                     as: "reviews",
-  //                 },
-  //             },
-  //             {
-  //                 $addFields: {
-  //                     reviews: "$reviews",
-  //                 },
-  //             },
-  //         ]
-  //     return await restaurants.aggregate(pipeline).next()
-  //   } catch (e) {
-  //     console.error(`Something went wrong in getRestaurantByID: ${e}`)
-  //     throw e
-  //   }
-  // }
+  static async getCompanyByTicker(ticker) {
+    try {
+      const pipeline = [
+        {
+            $match: {
+              Ticker: ticker,
+            },
+        }
+          ]
+      return await companies.aggregate(pipeline).next()
+    } catch (e) {
+      console.error(`Something went wrong in getCompanyByTicker: ${e}`)
+      throw e
+    }
+  }
 
   // static async getCuisines() {
   //   let cuisines = []

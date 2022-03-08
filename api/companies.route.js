@@ -8,6 +8,7 @@ import ForPredictionController from "./forprediction.controller.js"
 const router = express.Router()
 
 router.route("/companies").get(CompaniesCtrl.apiGetCompanies)
+router.route("/company/ticker/:ticker").get(CompaniesCtrl.apiGetCompanyByTicker)
 router.route("/ticker/:ticker").get(StocksCtrl.apiGetStockByTicker)
 // router.route("/cuisines").get(RestaurantsCtrl.apiGetRestaurantCuisines)
 

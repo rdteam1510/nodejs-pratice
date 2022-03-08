@@ -29,20 +29,20 @@ export default class CompaniesController {
     }
     res.json(response)
   }
-  // static async apiGetRestaurantById(req, res, next) {
-  //   try {
-  //     let id = req.params.id || {}
-  //     let restaurant = await RestaurantsDAO.getRestaurantByID(id)
-  //     if (!restaurant) {
-  //       res.status(404).json({ error: "Not found" })
-  //       return
-  //     }
-  //     res.json(restaurant)
-  //   } catch (e) {
-  //     console.log(`api, ${e}`)
-  //     res.status(500).json({ error: e })
-  //   }
-  // }
+  static async apiGetCompanyByTicker(req, res, next) {
+    try {
+      let ticker = req.params.ticker || {}
+      let company = await CompaniesDAO.getCompanyByTicker(ticker)
+      if (!company) {
+        res.status(404).json({ error: "Not found" })
+        return
+      }
+      res.json(company)
+    } catch (e) {
+      console.log(`api, ${e}`)
+      res.status(500).json({ error: e })
+    }
+  }
 
   // static async apiGetRestaurantCuisines(req, res, next) {
   //   try {

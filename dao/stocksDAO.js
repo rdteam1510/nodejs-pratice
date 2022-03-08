@@ -57,7 +57,7 @@ export default class StocksDAO {
       return { stocksList: [], totalNumStocks: 0 }
     }
   }
-  static async geStockByTicker(ticker) {
+  static async getStockByTicker(ticker) {
     try {
       const pipeline = [
         {
